@@ -25,7 +25,9 @@ Instalación
 01. Entra a la sección de ajustes de WooCommerce y configura el plugin de PagoFlash. Esto lo puedes
   hacer a través de la URL "{mi-sitio-web}/wp-admin/admin.php?page=wc-settings&tab=checkout&section"
 
-02. Eso es todo, ahora tus clientes podrán realizarte los pagos utilizando PagoFlash
+02. Crea una nueva página con el siguiente URL "{mi-sitio-web}/pagoflash-callback"
+
+03. Eso es todo, ahora tus clientes podrán realizarte los pagos utilizando PagoFlash
 
 
 
@@ -79,7 +81,28 @@ el apartado de "Finalizar Compra" y posee las siguientes opciones configurables:
     El mensaje no contiene información sensible, solo nos avisa que algo no va bien y nos entrega
     los datos, que ya están en nuestra plataforma, para atender la eventualidad puntualmente.
 
+-- -------------------------------------------------------------------------------------------------
+-- Agregar moneda (bs)
+-- -------------------------------------------------------------------------------------------------
+Para configurar woocommerce para que acepte bolívares como moneda, agrega la siguiente función al final del archivo functions.php de tu theme.
 
+```php
+add_filter( 'woocommerce_currencies', 'add_my_currency' );
+
+function add_my_currency( $currencies ) {
+     $currencies['ABC'] = __( 'Bolívares', 'woocommerce' );
+     return $currencies;
+}
+
+add_filter('woocommerce_currency_symbol', 'add_my_currency_symbol', 10, 2);
+
+function add_my_currency_symbol( $currency_symbol, $currency ) {
+     switch( $currency ) {
+          case 'ABC': $currency_symbol = 'Bs. '; break;
+     }
+     return $currency_symbol;
+}
+```
 
 -- -------------------------------------------------------------------------------------------------
 -- Personalización
