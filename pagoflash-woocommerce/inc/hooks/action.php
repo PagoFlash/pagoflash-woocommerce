@@ -37,6 +37,7 @@ class ActionHook
     {
       return;
     }
+
     
     // no es la URL para atender la respuesta de PagoFlash
     if ($wp->query_vars['pagename'] !== 'pagoflash-callback')
@@ -71,47 +72,37 @@ class ActionHook
       $_SERVER['HTTP_USER_AGENT']);
     $v_response = json_decode($v_raw_response);
 
-    //Valida data por curl
-    if($_GET['callback'] == 1){
-      // la respuesta no fue satisfactoria
-      if ((null === $v_response) || ($v_response->cod != 1))
-      {
-        // agrega el mensaje en el log de errores
-        $v_gateway->log("response: {$v_raw_response}");
-        exit;
-      }
+    // la respuesta no fue satisfactoria
+    if ((null === $v_response) || (($v_response->cod != 1) && ($v_response->cod != 3)))
+    {
+      // agrega el mensaje en el log de errores
+      $v_gateway->log("response: {$v_raw_response}");
+      
+      $pagoflash_woocommerce->template_manager->loadTemplate('gateway/callback/error',
+        [
+        'response' => $v_response,
+        'message' => $v_gateway->get_option('errorMessage')
+      ]);
+      exit;
     }
 
     // obtiene los datos de la orden de compra
     $v_order = new \WC_Order($v_response->order_number);
     /* @var $v_order \WC_Order */
 
-    //Muestra mensaje con status de la operación 
-    if($_GET['callback'] == 0){
-      if($v_order->post_status == 'wc-completed'){
-          $pagoflash_woocommerce->template_manager->loadTemplate('gateway/callback/success',
-            [
-            'response' => $v_response,
-            'message' => $v_gateway->get_option('successMessage')
-          ]);
-          exit;
-      }else{
-        $pagoflash_woocommerce->template_manager->loadTemplate('gateway/callback/error',
-        [
-        'response' => $v_response,
-        'message' => $v_gateway->get_option('errorMessage')
-      ]);
-        exit;
-
-      }
+    if (($v_response == 1))
+    {
+        // actualiza el estatus de la orden
+        $v_order->payment_complete($_GET['tk']);
+        // limpia el carro de compra
+        $woocommerce->cart->empty_cart();
     }
 
-    // actualiza el estatus de la orden
-    $v_order->payment_complete($_GET['tk']);
-
-    // limpia el carro de compra
-    $woocommerce->cart->empty_cart();
-
+    $pagoflash_woocommerce->template_manager->loadTemplate('gateway/callback/success',
+      [
+      'response' => $v_response,
+      'message' => $v_gateway->get_option('successMessage')
+    ]);
 
     exit;
   }
