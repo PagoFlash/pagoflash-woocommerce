@@ -9,7 +9,8 @@ if (false === defined('ABSPATH'))
 /**
  * Pasarela de pago de PagoFlash International
  *
- * @author Enebrus Kem Lem, C.A. <contacto@enebruskemlem.com.ve>
+ * @author PagoFlash International C.A. <http://www.pagoflash.com>
+ * @version 1.2-20160803
  */
 class WC_Gateway_Pagoflash extends WC_Payment_Gateway
 {

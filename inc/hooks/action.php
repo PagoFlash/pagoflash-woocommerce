@@ -11,7 +11,8 @@ if (false === defined('ABSPATH'))
 /**
  * Crea las acciones que utiliza el plugin
  *
- * @author Enebrus Kem Lem, C.A. <contacto@enebruskemlem.com.ve>
+ * @author PagoFlash International C.A. <http://www.pagoflash.com>
+ * @version 1.2-20160803
  */
 class ActionHook
 {

@@ -14,7 +14,8 @@ require dirname(__FILE__) . '/TemplateManager.php';
  * Prepara el plugin para ser utilizado, centraliza las funciones de uso general del plugin y limpia
  * el estatus de Wordpress una vez que el plugin es desactivado
  *
- * @author Enebrus Kem Lem, C.A. <contacto@enebruskemlem.com.ve>
+ * @author PagoFlash International C.A. <http://www.pagoflash.com>
+ * @version 1.2-20160803
  */
 class Plugin
 {
