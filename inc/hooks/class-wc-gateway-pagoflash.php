@@ -2,7 +2,7 @@
 
 if (false === defined('ABSPATH'))
 {
-  header('Location: http://www.enebruskemlem.com.ve');
+  header('Location: http://www.pagoflash.com');
   exit;
 }
 

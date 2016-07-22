@@ -4,12 +4,12 @@ namespace pagoflash\woocommerce;
 
 if (false === defined('ABSPATH'))
 {
-  header('Location: http://www.enebruskemlem.com.ve');
+  header('Location: http://www.pagoflash.com');
   exit;
 }
 
 /*
- * Copyright 2015  Enebrus Kem Lem, C.A. - email : contacto@enebruskemlem.com.ve
+ * Copyright 2016  PagoFlash International C.A. - email : contacto@enebruskemlem.com.ve
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, version 2, as published by the
@@ -30,8 +30,8 @@ if (false === defined('ABSPATH'))
  * Plugin URI: http://pagoflash.com/
  * Description: Permite a tus clientes de la tienda virtual realizarte los pagos usando la plataforma de PagoFlash International
  * Version: 1.1-2015
- * Author: Enebrus Kem Lem, C.A.
- * Author URI: http://www.enebruskemlem.com.ve
+ * Author: PagoFlash International C.A.
+ * Author URI: http://www.pagoflash.com
  * License: GPL2
  */
 
