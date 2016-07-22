@@ -4,15 +4,15 @@ namespace pagoflash\woocommerce\inc;
 
 if (false === defined('ABSPATH'))
 {
-  header('Location: http://www.enebruskemlem.com.ve');
+  header('Location: http://www.pagoflash.com');
   exit;
 }
 
 /**
  * Gestor de plantillas
  *
- * @author Enebrus Kem Lem, C.A. <http://www.enebruskemlem.com.ve>
- * @version 1.2-20150803
+ * @author PagoFlash International C.A. <http://www.pagoflash.com>
+ * @version 1.2-20160803
  */
 class TemplateManager
 {
