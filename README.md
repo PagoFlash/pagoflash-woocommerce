@@ -12,8 +12,9 @@ Requerimientos
 
 Instalación
 ------------
-1. Colocar la carpeta "woocommerce-pagoflash" dentro del directorio "wp-content/plugins"
+1. Descargar el contenido comprimido (.zip) y renombrarlo a "pagoflash-woocommerce".
 2. Iniciar sesión en al área administrativa de Wordpress para tu sitio web
+3. Click en "Subir nuevo plugin" y seleccionar el plugin descargado (.zip)
 3. Ir al área de administración de plugins y activar el plugin
   "PagoFlash - Método de Pago para WooCommerce"
 
