@@ -33,6 +33,7 @@ if (false === defined('ABSPATH'))
  * Author: PagoFlash International C.A.
  * Author URI: http://www.pagoflash.com
  * License: GPL2
+ * Text Domain: pagoflash
  */
 
 // incorpora el punto de entrada del plugin

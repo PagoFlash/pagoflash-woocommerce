@@ -53,7 +53,7 @@ class WC_Gateway_Pagoflash extends WC_Payment_Gateway
     $this->method_title = __('PagoFlash', 'pagoflash');
 
     // texto del botón de pago
-    $this->order_button_text = __('Proceed to PagoFlash');
+    $this->order_button_text = __('Proceed to PagoFlash', 'pagoflash');
 
     // URL que atiende la respuesta de PagoFlash
     $this->callback_url = site_url() . '/pagoflash-callback';
